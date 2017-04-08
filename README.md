@@ -1,5 +1,7 @@
 # tristar-to-telegraf
-Python script to output data from Morningstar Tristar charge controllers in JSON format for Telegraph/InfluxDB/Grafana stack
+Python script to output data from Morningstar Tristar charge controllers in JSON format for Telegraph/InfluxDB/Grafana stack.
+
+Modified version of brocktice's tristar script https://github.com/brocktice/tristar-python-modbus
 
 **Usage:** python read_tsmppt.py `<ip address>` `<alias>`
 

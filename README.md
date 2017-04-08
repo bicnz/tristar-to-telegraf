@@ -14,9 +14,9 @@ Output:
 ```
 [[inputs.exec]]
    commands = [
-     "python /home/jigsaw/read_tsmppt.py 192.168.1.100 Solar1",
-     "python /home/jigsaw/read_tsmppt.py 192.168.1.101 Solar2",
-     "python /home/jigsaw/read_tsmppt.py 192.168.1.102 Solar3"
+     "python /home/user/read_tsmppt.py 192.168.1.100 Solar1",
+     "python /home/user/read_tsmppt.py 192.168.1.101 Solar2",
+     "python /home/user/read_tsmppt.py 192.168.1.102 Solar3"
 ]
    interval = "60s"
    timeout = "5s"
@@ -31,3 +31,5 @@ Output:
 **Current** `SELECT mean("SOLAR1_battamps") FROM "exec_SOLAR" WHERE "SOLAR1_battamps" < 100 AND $timeFilter GROUP BY time($__interval) fill(linear)`
 
 **Batt Temp** `SELECT mean("SOLAR1_batttemp") FROM "exec_SOLAR" WHERE "SOLAR1_batttemp" < 100 AND $timeFilter GROUP BY time($__interval) fill(linear)`
+
+![Grafana Dashboard](https://github.com/bicnz/tristar-to-telegraf/raw/master/grafana-dashboard.png)

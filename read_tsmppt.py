@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Based on Morningstar documentation here
 # http://www.morningstarcorp.com/wp-content/uploads/2014/02/TSMPPT.APP_.Modbus.EN_.10.2.pdf
@@ -12,7 +12,7 @@ import sys
 import json
 
 if len(sys.argv) <= 1:
-    print "Usage: read_tsmppt.py <ip address> <host alias>"
+    print ("Usage: read_tsmppt.py <ip address> <host alias>")
     exit(1)
 
 host = sys.argv[1]
@@ -56,7 +56,7 @@ battsI = rr.registers[28] * i_scale
 arrayV = rr.registers[27] * v_scale
 arrayI = rr.registers[29] * i_scale
 statenum = rr.registers[50]
-hsTemp = rr.registers[35] 
+hsTemp = rr.registers[35]
 rtsTemp = rr.registers[36]
 outPower = rr.registers[58] * p_scale
 inPower = rr.registers[59] * p_scale
@@ -67,25 +67,24 @@ maxTb_daily = rr.registers[72]
 dipswitches = bin(rr.registers[48])[::-1][:-2].zfill(8)
 led_state = rr.registers
 data = {
-   alias : {
-	"battvolt" : battsV,
-	"battsense" : battsSensedV,
-	"battamps" : battsI,
-	"battwatts" : (battsV*battsI),
-	"arrayvolt" : arrayV,
-	"arrayamps" : arrayI,
-	"arraywatts" : (arrayV*arrayI),
-	"heatsinktemp" : hsTemp,
-	"batttemp" : rtsTemp,
-	"state" : statenum,
-	"powerout" : outPower,
-	"powerin" : inPower,
-	"battvoltmin" : minVb_daily,
-	"battvoltmax" : maxVb_daily,
-	"batttempmin" : minTb_daily,
-	"batttempmax" : maxTb_daily,
-	}
+        "SiteID" : alias,
+        "battvolt" : battsV,
+        "battsense" : battsSensedV,
+        "battamps" : battsI,
+        "battwatts" : (battsV*battsI),
+        "arrayvolt" : arrayV,
+        "arrayamps" : arrayI,
+        "arraywatts" : (arrayV*arrayI),
+        "heatsinktemp" : hsTemp,
+        "batttemp" : rtsTemp,
+        "state" : statenum,
+        "powerout" : outPower,
+        "powerin" : inPower,
+        "battvoltmin" : minVb_daily,
+        "battvoltmax" : maxVb_daily,
+        "batttempmin" : minTb_daily,
+        "batttempmax" : maxTb_daily,
    }
 json_str = json.dumps(data)
-print json_str
+print (json_str)
 client.close()

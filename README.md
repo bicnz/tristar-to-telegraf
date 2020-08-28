@@ -7,7 +7,7 @@ Modified version of brocktice's tristar script https://github.com/brocktice/tris
 ***
 ### Usage
 
-python read_tsmppt.py `<ip address>` `<alias>`
+python3 read_tsmppt.py `<ip address>` `<alias>`
 
 **Example:** python3 read_tsmppt.py 192.168.1.100 Solar1
 

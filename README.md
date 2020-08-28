@@ -5,19 +5,11 @@ Tested with Tristar TS-MPPT-60
 
 Modified version of brocktice's tristar script https://github.com/brocktice/tristar-python-modbus
 ***
-**Requirements**
-
-Install Python and pymodbus library
-```
-apt-get install python python-pip
-pip install -U pymodbus
-```
-***
 ### Usage
 
 python read_tsmppt.py `<ip address>` `<alias>`
 
-**Example:** python read_tsmppt.py 192.168.1.100 Solar1
+**Example:** python3 read_tsmppt.py 192.168.1.100 Solar1
 
 Output:
 
@@ -28,9 +20,9 @@ Output:
 ```
 [[inputs.exec]]
    commands = [
-     "python /home/user/read_tsmppt.py 192.168.1.100 Solar1",
-     "python /home/user/read_tsmppt.py 192.168.1.101 Solar2",
-     "python /home/user/read_tsmppt.py 192.168.1.102 Solar3"
+     "python3 /home/user/read_tsmppt.py 192.168.1.100 Solar1",
+     "python3 /home/user/read_tsmppt.py 192.168.1.101 Solar2",
+     "python3 /home/user/read_tsmppt.py 192.168.1.102 Solar3"
 ]
    tag_keys = [
     "SiteID"
